@@ -8,5 +8,18 @@
     "start": "node index"
   },
   "author": "Vandna",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vandna281/NodeMongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vandna281/NodeMongo/issues"
+  },
+  "homepage": "https://github.com/vandna281/NodeMongo#readme"
 }

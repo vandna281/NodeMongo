@@ -1,16 +1,23 @@
-/* Without node module
-var rect = {
-    perimeter: (x,y) => (2*(x+y)),
-    area: (x,y) => (x*y)
-};*/
+const express = require('express'),
+http = require('http');
+const morgan = require('morgan');
+const hostname = '192.168.123.16';
+const port = 3000;
 
-//With Node module
-var rect = require("./rectangle");
+const app = express();
+app.use(morgan('dev'));
 
-function solveRect(l, b) {
-	console.log("Area = " + rect.area(l,b));
-	console.log("Perimeter = " + rect.perimeter(l,b));
+app.use(express.static(__dirname + '/'));
+app.use((req, res, next) => {
+  console.log(req.headers);
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end('<html><body><h1>This is an Express Server</h1></body></html>');
 
-}
+});
 
-solveRect(2,3);
+const server = http.createServer(app);
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
